@@ -11,6 +11,23 @@ const HIGHLIGHT_COLOR = 'rgba(0,118,255,0.9)';
 const OPTION_CONTAINER_HEIGHT = 400;
 
 export default StyleSheet.create({
+     fd: {
+        flexDirection: 'row',
+    },
+//     //居中
+//     overlayContainerStyle1: {
+//         justifyContent: 'center',
+//         alignItems: 'center',
+//     },
+// //居底
+//     overlayContainerStyle2: {
+//         justifyContent: 'flex-end',
+//         alignItems: 'flex-end',
+//     },
+    overlayContainerStyle : {
+           justifyContent: 'flex-end',
+           alignItems: 'flex-end',
+     },
 
     overlayStyle: {
         width: width,
@@ -24,12 +41,14 @@ export default StyleSheet.create({
         height:OPTION_CONTAINER_HEIGHT,
         backgroundColor:'rgba(255,255,255,0.8)',
         left:width*0.1,
-        top:(height-OPTION_CONTAINER_HEIGHT)/2
+        // top:(height-OPTION_CONTAINER_HEIGHT)/2
     },
 
     cancelContainer: {
         left:width*0.1,
-        top:(height-OPTION_CONTAINER_HEIGHT)/2 + 10
+        height:OPTION_CONTAINER_HEIGHT,
+        marginTop: 15,
+        bottom: (height-OPTION_CONTAINER_HEIGHT)/2
     },
 
     selectStyle: {

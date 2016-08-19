@@ -27,10 +27,12 @@ const propTypes = {
     style: View.propTypes.style,
     selectStyle: View.propTypes.style,
     optionStyle: View.propTypes.style,
+    optionContainer: View.propTypes.style,
     optionTextStyle: Text.propTypes.style,
     sectionStyle: View.propTypes.style,
     sectionTextStyle: Text.propTypes.style,
     cancelStyle: View.propTypes.style,
+    cancelContainerStyle: View.propTypes.style,
     cancelTextStyle: Text.propTypes.style,
     overlayStyle: View.propTypes.style,
     cancelText: PropTypes.string
@@ -43,9 +45,11 @@ const defaultProps = {
     style: {},
     selectStyle: {},
     optionStyle: {},
+    optionContainer: {},
     optionTextStyle: {},
     sectionStyle: {},
     sectionTextStyle: {},
+    cancelContainerStyle: {},
     cancelStyle: {},
     cancelTextStyle: {},
     overlayStyle: {},
@@ -129,22 +133,23 @@ export default class ModalPicker extends BaseComponent {
         });
 
         return (
-            <View style={[styles.overlayStyle, this.props.overlayStyle]} key={'modalPicker'+(componentIndex++)}>
-                <View style={styles.optionContainer}>
+         <View style={[styles.overlayStyle, styles.fd,this.props.overlayStyle]} key={'modalPicker'+(componentIndex++)}>
+             <View style={styles.overlayContainerStyle}>
+                <View style={[styles.optionContainer,this.props.optionContainer]}>
                     <ScrollView keyboardShouldPersistTaps>
                         <View style={{paddingHorizontal:10}}>
                             {options}
                         </View>
                     </ScrollView>
                 </View>
-                <View style={styles.cancelContainer}>
+               <View style={[styles.cancelContainer,this.props.cancelContainer]}>
                     <TouchableOpacity onPress={this.close}>
                         <View style={[styles.cancelStyle, this.props.cancelStyle]}>
                             <Text style={[styles.cancelTextStyle,this.props.cancelTextStyle]}>{this.props.cancelText}</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
-
+              </View>
             </View>);
     }
 
